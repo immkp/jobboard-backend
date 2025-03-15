@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import jobRoutes from "./routes/jobRoutes.js";
 import connectDB from "./config/db.js"; // Import the connectDB function
+import { scrapeJobs } from "./utils/crawler.js";
 
 dotenv.config(); // Load environment variables
 
