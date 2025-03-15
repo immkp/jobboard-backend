@@ -1,4 +1,4 @@
-import puppeteer from "puppeteer-core"; // Use puppeteer-core
+import puppeteer from "puppeteer-extra"; // Use puppeteer-extra
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
