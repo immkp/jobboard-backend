@@ -9,13 +9,13 @@ dotenv.config(); // Load environment variables
 const app = express();
 // Middleware to parse JSON
 app.use(cors({ 
-  origin: "http://localhost:5173", 
+  origin: "https://jobboard-frontend-one.vercel.app", 
   methods: "GET,POST,PUT,DELETE", 
   allowedHeaders: "Content-Type,Authorization"
 })); // Allow frontend to access backend
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
+  res.header("Access-Control-Allow-Origin", "https://jobboard-frontend-one.vercel.app");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   
