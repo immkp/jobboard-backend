@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import jobRoutes from "./routes/jobRoutes.js";
+import connectDB from "./config/db.js"; // Import the connectDB function
 
 dotenv.config(); // Load environment variables
 
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
 
 app.use(express.json()); 
 
+connectDB();
 app.use("/api", jobRoutes);
 
 
@@ -36,10 +38,6 @@ const PORT = process.env.PORT || 4061;
 const MONGO_URI = process.env.MONGO_URI; // Ensure this is set in .env
 
 // Connect to MongoDB
-mongoose
-  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
 
 app.get("/api/scrape-jobs", (req, res) => {
