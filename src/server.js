@@ -43,5 +43,14 @@ const MONGO_URI = process.env.MONGO_URI; // Ensure this is set in .env
 app.get("/api/scrape-jobs", (req, res) => {
   res.json({ message: "CORS fixed!", jobs: [] });
 });
+app.get("/test-scrape", async (req, res) => {
+  try {
+    const jobs = await scrapeJobs("React Developer", 2, 97); // Example parameters
+    res.json(jobs);
+  } catch (error) {
+    console.error("Scraping error:", error);
+    res.status(500).json({ error: "Scraping failed" });
+  }
+});
 
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
