@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "build": "chmod +x build.sh && ./build.sh && npm install"
+    "build": "chmod +x build.sh && ./build.sh && npm install",
+    "postinstall": "apt-get update && apt-get install -y chromium-browser"
   },
   "keywords": [],
   "author": "",
